@@ -9,7 +9,7 @@ export default function Attendance() {
     const [timeOut, setTimeOut] = React.useState(undefined);
 
     React.useEffect(() => {
-        Axios.get('http://127.0.0.1:8000/api/attendance')
+        Axios.get('http://v-trackerx.herokuapp.com/api/attendance')
             .then(res => {
                 console.log(res.data)
                 setList(prev=> prev = res.data.enroll)

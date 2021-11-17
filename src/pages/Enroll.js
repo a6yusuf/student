@@ -18,7 +18,7 @@ export default function Enroll() {
     }
 
     const notify = () => {
-        Axios.get('http://127.0.0.1:8000/api/notify')
+        Axios.get('http://v-trackerx.herokuapp.com/api/notify')
         .then(res => {
             console.log(res.data)
             setExpectFin(true)
@@ -29,7 +29,7 @@ export default function Enroll() {
     const submit = (e) => {
         e.preventDefault()
         // console.log('data: ', data)
-        Axios.post('http://127.0.0.1:8000/api/submit', data)
+        Axios.post('http://v-trackerx.herokuapp.com/api/submit', data)
         .then(res => {
             // console.log("Res", res.data)
             setStatus(prev => prev = res.data.status.status)
@@ -39,7 +39,7 @@ export default function Enroll() {
     }
 
     React.useEffect(() => {
-        Axios.get('http://127.0.0.1:8000/api/enroll')
+        Axios.get('http://v-trackerx.herokuapp.com/api/enroll')
         .then(res => {
             // console.log(res.data)
             setStatus(prev => prev = res.data.status.status)

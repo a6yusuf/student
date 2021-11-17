@@ -14,8 +14,8 @@ export default function Register() {
 
 
 
-  const baseUrl = 'http://127.0.0.1:8000';
-  // const baseUrl = 'http://127.0.0.1:8000';
+  const baseUrl = 'http://v-trackerx.herokuapp.com';
+  // const baseUrl = 'http://v-trackerx.herokuapp.com';
 
   useEffect(() => {
     inputEl.current.focus();
