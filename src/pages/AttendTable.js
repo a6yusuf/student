@@ -44,7 +44,7 @@ export default class AttendTable extends Component {
                     </thead>
                     <tbody>
                     {this.props.data.map(item => {
-                            return <>
+                            return this.props.ins?.find(it => parseInt(it.sid) === item.student_id) ? <>
                             <tr key={item.id}>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                     <div className="flex items-center">
@@ -67,7 +67,7 @@ export default class AttendTable extends Component {
                                 </td>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                     <p className="text-gray-900 whitespace-no-wrap">
-                                    {moment(item.time).format('MMM Do YY')}
+                                    {moment(this.props.ins?.find(it => parseInt(it.sid) === item.student_id)?.created_at).format('MMM Do YY')}
                                     </p>
                                 </td>                              
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -81,7 +81,7 @@ export default class AttendTable extends Component {
                                     </p>
                                 </td>                              
                             </tr>
-                            </>
+                            </> : null
                          })}
                     </tbody>
                 </table>
