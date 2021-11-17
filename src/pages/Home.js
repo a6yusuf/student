@@ -20,7 +20,7 @@ export default function Home() {
         // console.log(e.target.value)
         setModeloading(true)
         setValue(prev => prev = e.target.value)
-        Axios.post('http://v-trackerx.herokuapp.com/api/setmode', {mode: e.target.value})
+        Axios.post('http://127.0.0.1:8000/api/setmode', {mode: e.target.value})
             .then(res => {
                 setModeloading(false)
                 console.log('mode: ',res.data)
@@ -28,7 +28,7 @@ export default function Home() {
     } 
 
     React.useEffect(() => {
-        Axios.get('http://v-trackerx.herokuapp.com/api/home')
+        Axios.get('http://127.0.0.1:8000/api/home')
             .then(res => {
                 console.log(res.data.enroll)
                setValue(prev=> prev = res.data.mode ? res.data.mode : 'idle')
